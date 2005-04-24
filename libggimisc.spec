@@ -1,12 +1,12 @@
 Summary:	LibGGIMisc - extension for misc graphics target features
 Summary(pl):	LibGGIMisc - rozszerzenie do ró¿nych cech modu³ów wy¶wietlaj±cych
 Name:		libggimisc
-Version:	2.1.0
+Version:	2.1.1
 Release:	1
 License:	BSD-like
 Group:		Libraries
 Source0:	http://www.ggi-project.org/ftp/ggi/current/%{name}-%{version}.src.tar.bz2
-# Source0-md5:	44be7b5e01fd9701bd84de4f19be95f0
+# Source0-md5:	d239065a234bcac49090e731d644a8a6
 URL:		http://www.ggi-project.org/packages/libggimisc.html
 BuildRequires:	libggi-devel >= 2.1.0
 BuildRequires:	svgalib-devel
