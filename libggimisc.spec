@@ -1,5 +1,5 @@
 Summary:	LibGGIMisc - extension for misc graphics target features
-Summary(pl):	LibGGIMisc - rozszerzenie do r罂nych cech modu丑w wy秝ietlaj眂ych
+Summary(pl.UTF-8):   LibGGIMisc - rozszerzenie do r贸偶nych cech modu艂贸w wy艣wietlaj膮cych
 Name:		libggimisc
 Version:	2.1.2
 Release:	1
@@ -19,17 +19,17 @@ means basically some VGA adaptor features - getting and waiting for
 the raster position, using a hardware horizontal splitline feature,
 and loading/unloading font data from hardware text modes.
 
-%description -l pl
-LibGGIMisc to miejsce do umieszczania obs硊gi r罂nych cech modu丑w
-wy秝ietlaj眂ych nie zas硊guj眂ych na w砤sne specjalne rozszerzenia.
-Aktualnei oznacza to g丑wnie niekt髍e mo縧iwo禼i kart graficznych VGA,
-takie jak odczyt i oczekiwanie na po硂縠nie rastra, u縴wanie
-sprz阾owej linii dziel眂ej oraz wczytywanie/usuwanie danych font體 ze
-sprz阾owych tryb體 tekstowych.
+%description -l pl.UTF-8
+LibGGIMisc to miejsce do umieszczania obs艂ugi r贸偶nych cech modu艂贸w
+wy艣wietlaj膮cych nie zas艂uguj膮cych na w艂asne specjalne rozszerzenia.
+Aktualnei oznacza to g艂贸wnie niekt贸re mo偶liwo艣ci kart graficznych VGA,
+takie jak odczyt i oczekiwanie na po艂o偶enie rastra, u偶ywanie
+sprz臋towej linii dziel膮cej oraz wczytywanie/usuwanie danych font贸w ze
+sprz臋towych tryb贸w tekstowych.
 
 %package devel
 Summary:	Header files for libggimisc library
-Summary(pl):	Pliki nag丑wkowe biblioteki libggimisc
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki libggimisc
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libggi-devel >= 2.1.2
@@ -37,19 +37,19 @@ Requires:	libggi-devel >= 2.1.2
 %description devel
 Header files for libggimisc library.
 
-%description devel -l pl
-Pliki nag丑wkowe biblioteki libggimisc.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe biblioteki libggimisc.
 
 %package svgalib
 Summary:	svgalib target for libggimisc library
-Summary(pl):	Wtyczka svgalib dla biblioteki libggimisc
+Summary(pl.UTF-8):   Wtyczka svgalib dla biblioteki libggimisc
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description svgalib
 svgalib target for libggimisc library.
 
-%description svgalib -l pl
+%description svgalib -l pl.UTF-8
 Wtyczka svgalib dla biblioteki libggimisc.
 
 %prep
