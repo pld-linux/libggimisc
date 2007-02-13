@@ -1,5 +1,5 @@
 Summary:	LibGGIMisc - extension for misc graphics target features
-Summary(pl.UTF-8):   LibGGIMisc - rozszerzenie do różnych cech modułów wyświetlających
+Summary(pl.UTF-8):	LibGGIMisc - rozszerzenie do różnych cech modułów wyświetlających
 Name:		libggimisc
 Version:	2.1.2
 Release:	1
@@ -29,7 +29,7 @@ sprzętowych trybów tekstowych.
 
 %package devel
 Summary:	Header files for libggimisc library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libggimisc
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libggimisc
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libggi-devel >= 2.1.2
@@ -42,7 +42,7 @@ Pliki nagłówkowe biblioteki libggimisc.
 
 %package svgalib
 Summary:	svgalib target for libggimisc library
-Summary(pl.UTF-8):   Wtyczka svgalib dla biblioteki libggimisc
+Summary(pl.UTF-8):	Wtyczka svgalib dla biblioteki libggimisc
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
