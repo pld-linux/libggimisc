@@ -22,7 +22,7 @@ and loading/unloading font data from hardware text modes.
 %description -l pl.UTF-8
 LibGGIMisc to miejsce do umieszczania obsługi różnych cech modułów
 wyświetlających nie zasługujących na własne specjalne rozszerzenia.
-Aktualnei oznacza to głównie niektóre możliwości kart graficznych VGA,
+Aktualnie oznacza to głównie niektóre możliwości kart graficznych VGA,
 takie jak odczyt i oczekiwanie na położenie rastra, używanie
 sprzętowej linii dzielącej oraz wczytywanie/usuwanie danych fontów ze
 sprzętowych trybów tekstowych.
