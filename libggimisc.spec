@@ -1,15 +1,22 @@
+#
+# Conditional build:
+%bcond_with	svga	# svgalib plugin
+#
 Summary:	LibGGIMisc - extension for misc graphics target features
 Summary(pl.UTF-8):	LibGGIMisc - rozszerzenie do różnych cech modułów wyświetlających
 Name:		libggimisc
-Version:	2.1.2
+Version:	2.2.2
 Release:	1
 License:	BSD-like
 Group:		Libraries
-Source0:	http://www.ggi-project.org/ftp/ggi/v2.1/%{name}-%{version}.src.tar.bz2
-# Source0-md5:	ab3d4091f8a1eeee0d0ff94780459a38
+# HTTP 403
+#Source0:	http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
+Source0:	http://downloads.sourceforge.net/ggi/%{name}-%{version}.src.tar.bz2
+# Source0-md5:	8e525280ccee2eaab07946ca7aee159f
 URL:		http://www.ggi-project.org/packages/libggimisc.html
-BuildRequires:	libggi-devel >= 2.1.2
-BuildRequires:	svgalib-devel
+BuildRequires:	libggi-devel >= 2.2.2
+%{?with_svga:BuildRequires:	svgalib-devel}
+Requires:	libggi >= 2.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,13 +39,25 @@ Summary:	Header files for libggimisc library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libggimisc
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libggi-devel >= 2.1.2
+Requires:	libggi-devel >= 2.2.2
 
 %description devel
 Header files for libggimisc library.
 
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki libggimisc.
+
+%package static
+Summary:	Static libggimisc library
+Summary(pl.UTF-8):	Statyczna biblioteka libggimisc
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static libggimisc library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka libggimisc.
 
 %package svgalib
 Summary:	svgalib target for libggimisc library
@@ -56,7 +75,8 @@ Wtyczka svgalib dla biblioteki libggimisc.
 %setup -q
 
 %build
-%configure
+%configure \
+	%{!?with_svga:--disable-svgalib}
 %{__make}
 
 %install
@@ -65,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/ggi/ggimisc/display/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/ggi/ggimisc/display/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,6 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog README TODO
 %attr(755,root,root) %{_libdir}/libggimisc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libggimisc.so.2
 %dir %{_libdir}/ggi/ggimisc
 %dir %{_libdir}/ggi/ggimisc/display
 %attr(755,root,root) %{_libdir}/ggi/ggimisc/display/fbdev_ggimisc.so
@@ -93,6 +114,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/ggi/internal/misc.h
 %{_mandir}/man3/ggi*.3*
 
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libggimisc.a
+
+%if %{with svga}
 %files svgalib
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/ggi/ggimisc/display/svgalib_ggimisc.so
+%endif
