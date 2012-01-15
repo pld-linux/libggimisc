@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_with	svga	# svgalib plugin
+%bcond_with	svga		# svgalib plugin
+%bcond_with	static_modules	# build static library AND make all modules builtin (also in shared lib)
 #
 Summary:	LibGGIMisc - extension for misc graphics target features
 Summary(pl.UTF-8):	LibGGIMisc - rozszerzenie do różnych cech modułów wyświetlających
@@ -40,6 +41,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libggimisc
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libggi-devel >= 2.2.2
+%if %{with static_modules}
+%{?with_svga:Requires:	svgalib-devel}
+%endif
 
 %description devel
 Header files for libggimisc library.
@@ -76,6 +80,7 @@ Wtyczka svgalib dla biblioteki libggimisc.
 
 %build
 %configure \
+	%{!?with_dynamic_modules:--disable-static} \
 	%{!?with_svga:--disable-svgalib}
 %{__make}
 
@@ -114,9 +119,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/ggi/internal/misc.h
 %{_mandir}/man3/ggi*.3*
 
+%if %{with static_modules}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libggimisc.a
+%endif
 
 %if %{with svga}
 %files svgalib
